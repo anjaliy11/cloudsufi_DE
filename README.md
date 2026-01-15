@@ -1,14 +1,15 @@
 # RetailMart Analytics – End-to-End Data Engineering Project
 ## Project Overview
 
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
+![BigQuery](https://img.shields.io/badge/BigQuery-Analytics-orange?logo=googlecloud)
+![GCP](https://img.shields.io/badge/GCP-Cloud-yellow?logo=googlecloud)
+![ETL](https://img.shields.io/badge/ETL-Pipeline-success)
+![Data%20Warehouse](https://img.shields.io/badge/Data%20Warehouse-Star%20Schema-informational)
+![SQL](https://img.shields.io/badge/SQL-Stored%20Procedures-lightgrey)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![MySQL](https://img.shields.io/badge/MySQL-OLTP-blue)
-![BigQuery](https://img.shields.io/badge/Google%20BigQuery-Data%20Warehouse-orange)
-![ETL](https://img.shields.io/badge/ETL-Python-green)
-![SQL](https://img.shields.io/badge/SQL-Analytics-lightgrey)
-![Cloud](https://img.shields.io/badge/Cloud-GCP-yellow)
-![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
 
 RetailMart Analytics is an end-to-end data engineering project that simulates a real-world retail analytics pipeline.
 The project covers OLTP schema design, ETL development, data warehousing, and business analytics using MySQL, Python, and Google BigQuery.

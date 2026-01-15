@@ -1,96 +1,118 @@
-# RetailMart Analytics – Case Study Assessment
-## Overview
+# RetailMart Analytics – End-to-End Data Engineering Project
+## Project Overview
 
-This project was completed as part of the RetailMart Analytics case study for the intern selection process.
-The objective was to design and implement a complete data pipeline for a retail chain, starting from transactional schema design to analytics-ready reporting in BigQuery.
 
-The work is divided into clearly defined tasks as mentioned in the challenge instructions.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![MySQL](https://img.shields.io/badge/MySQL-OLTP-blue)
+![BigQuery](https://img.shields.io/badge/Google%20BigQuery-Data%20Warehouse-orange)
+![ETL](https://img.shields.io/badge/ETL-Python-green)
+![SQL](https://img.shields.io/badge/SQL-Analytics-lightgrey)
+![Cloud](https://img.shields.io/badge/Cloud-GCP-yellow)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
 
-## Delieverable 1: MySQL ER Diagram & Database Schema Design
+RetailMart Analytics is an end-to-end data engineering project that simulates a real-world retail analytics pipeline.
+The project covers OLTP schema design, ETL development, data warehousing, and business analytics using MySQL, Python, and Google BigQuery.
 
-### Objective:
-Design a normalized OLTP schema to support retail operations such as sales, customers, products, returns, and vouchers.
+The goal was to design a scalable data pipeline that transforms raw transactional data into analytics-ready insights following industry best practices.
 
-### Approach:
+## Architecture Summary
 
-- Started with identifying core business entities (customers, products, categories, sales, returns).
+Source → ETL → Data Warehouse → Analytics
 
-- Designed tables following normalization principles to avoid redundancy.
+Source Layer: MySQL-style transactional schema (simulated via CSV exports)
 
-- Used foreign key relationships to enforce referential integrity.
+ETL Layer: Python-based modular ETL pipeline
 
-- Added appropriate indexes on frequently queried columns (customer_id, product_id, transaction_id).
+Warehouse Layer: BigQuery star schema
 
-- Created an ER diagram to visually represent relationships and validate the schema.
+Analytics Layer: Parameterized SQL stored procedures
 
-### Outcome:
-A clean MySQL schema that accurately models real-world retail transactions and supports downstream analytics.
-
-## Delieverable 2: Python ETL Pipeline (Source to BigQuery)
-
-### Objective:
-Build a Python-based ETL pipeline to move data from source files (simulating MySQL exports) into BigQuery.
-
-### Approach:
-
-Structured the pipeline into clear stages:
-
-- Extract: Read CSV files with validation for missing or empty data.
-
-- Transform: Clean date fields and validate required columns.
-
-- Load: Load data into BigQuery using the official client library.
-
-- Environment configuration handled via .env to separate code and credentials.
-
-- Implemented basic logging and error handling to make failures traceable.
-
-- Dataset creation is automated if it does not already exist.
-
-### Outcome:
-A reusable and readable ETL pipeline that reliably loads raw retail data into BigQuery.
-
-## Delieverable 3: BigQuery Data Warehouse Schema Design
+## Deliverables & Implementation
+### 1. OLTP Database Design (MySQL)
 
 ### Objective:
-Design an analytics-ready data warehouse using BigQuery best practices.
+Design a normalized transactional schema to support retail operations.
 
-### Approach:
+### Key Highlights:
 
-- Implemented a star schema with:
+Identified core entities: customers, products, categories, sales, returns, vouchers
 
-- Dimension tables: date, product, customer, store
+Applied 3NF normalization to avoid redundancy
 
-- Fact tables: sales, returns
+Enforced referential integrity using foreign keys
 
-- Partitioned large fact tables by date for cost-efficient queries.
+Added indexes on high-cardinality and frequently queried columns
 
-- Used clustering on commonly filtered columns such as product_id and customer_id.
-
-- Populated warehouse tables from raw datasets using SQL insert statements.
+Created an ER diagram to validate relationships
 
 ### Outcome:
-A scalable BigQuery data warehouse optimized for analytical queries and reporting.
+A clean, production-ready OLTP schema suitable for downstream analytics.
 
-## Delieverable 4: SQL Procedures for Business Analytics
+## 2. Python ETL Pipeline (CSV → BigQuery)
 
 ### Objective:
-Provide reusable SQL procedures for business-level insights.
+Build a reliable ETL pipeline to load transactional data into BigQuery.
 
-### Approach:
+### Key Highlights:
 
-- Created stored procedures in BigQuery for:
+Modular ETL design:
 
-- Sales metrics (total revenue, month-over-month, year-over-year)
+Extract: CSV ingestion with data validation
 
-- Returns analysis (return rates, refund impact)
+Transform: Date normalization, schema validation
 
-- Used parameterized date ranges to make procedures reusable.
+Load: Automated BigQuery ingestion
 
-- Ensured queries handle missing data safely using BigQuery functions.
+Environment-based configuration using .env
+
+Automated dataset creation
+
+Basic logging and error handling for traceability
 
 ### Outcome:
-Well-structured analytics procedures that can be directly used by reporting or BI tools.
+A reusable and maintainable ETL pipeline aligned with real-world data engineering workflows.
+
+## 3. BigQuery Data Warehouse Design
+
+## Objective:
+Create an analytics-optimized data warehouse.
+
+### Key Highlights:
+
+Implemented star schema
+
+Fact tables: sales, returns
+
+Dimension tables: date, customer, product, store
+
+Partitioned fact tables by date to reduce query cost
+
+Clustered tables on frequently filtered columns
+
+Populated warehouse tables from raw datasets using SQL
+
+### Outcome:
+A scalable BigQuery warehouse optimized for reporting and BI workloads.
+
+## 4. Business Analytics using SQL Procedures
+
+### Objective:
+Enable reusable business insights for reporting teams.
+
+### Key Highlights:
+
+Developed parameterized stored procedures for:
+
+Revenue metrics (total sales, MoM, YoY)
+
+Returns analysis (return rate, refund impact)
+
+Used defensive SQL patterns to handle missing or sparse data
+
+Designed procedures for direct BI tool consumption
+
+### Outcome:
+Production-ready analytics queries supporting business decision-making.
 
 
 ## Project Structure
@@ -167,7 +189,16 @@ CALL `retail-market-analysis.retailmart_dw.sp_sales_metrics`('2024-01-01', '2024
 CALL `retail-market-analysis.retailmart_dw.sp_returns_analysis`('2024-01-01', '2024-12-31');
 ```
 ---
-### Disclosure
+### Key Skills Demonstrated
 
-GPT-based models were used only as a support tool to help structure code and documentation.
-All schema design, SQL logic, transformations, and implementation decisions were independently developed, reviewed, and validated by me.
+- Data Modeling (OLTP & OLAP)
+
+- Python ETL Development
+
+- Google BigQuery & SQL Optimization
+
+- Star Schema & Partitioning
+
+- Cloud-based Analytics Pipelines
+
+- Data Validation & Error Handling
